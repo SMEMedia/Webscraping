@@ -45,6 +45,21 @@ Each successful run replaces the relevant output worksheets inside the
 operators do not need to move files after a refresh. The app also creates local CSV
 copies during the run and offers them as an optional ZIP backup.
 
+## Where company names come from
+
+The Company Mentions dashboard uses the approved company list stored in the Google
+Sheet named `company_list_spreadsheet` in the `webscraping` Google Drive folder.
+Company names are taken from column A of the `Company_List` tab, beginning on row 4.
+
+To add or remove a company, update that Google Sheet before running the dashboard
+refresh. The app will use the latest list automatically; operators do not need to
+edit any files in GitHub.
+
+The app also keeps a backup copy of the company list. If it cannot reach the Google
+Sheet during a refresh, it will use that backup and note the problem under
+**Technical details**. An administrator should review the message and confirm the
+Google account connection before the next refresh.
+
 ## Repository contents
 
 - `app.py`: operator-friendly page
