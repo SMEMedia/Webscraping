@@ -58,8 +58,8 @@ if st.button("Run dashboard refresh", type="primary", disabled=start_date > end_
         result = subprocess.run(command, cwd=BASE_DIR, capture_output=True, text=True, env=os.environ.copy())
         if result.returncode == 0:
             status.update(label="Refresh complete", state="complete")
-            st.success("The dashboard data refresh finished successfully.")
-            st.download_button("Download refreshed data files", output_zip(),
+            st.success("Refresh complete. The Google Sheet used by the dashboards has been updated.")
+            st.download_button("Download optional backup files", output_zip(),
                                f"dashboard-data-{today.isoformat()}.zip", "application/zip")
         else:
             status.update(label="Refresh did not finish", state="error")

@@ -8,7 +8,8 @@ This repository provides a simple web page for refreshing data used by the Websc
 2. Leave **Collect details for new articles** selected for a normal refresh.
 3. Select **Run dashboard refresh**.
 4. Keep the page open until it says **Refresh complete**.
-5. Download the refreshed files if your dashboard process requires them.
+5. The dashboards will read the refreshed worksheets from `AM_Enriched_Articles`.
+   The ZIP download is an optional backup for an administrator.
 
 If a run stops, expand **Technical details**, copy the message, and send it to the dashboard administrator. Never send or upload a Google service-account key.
 
@@ -37,9 +38,12 @@ universe_domain = "googleapis.com"
 
 Use values from the existing service-account JSON. Never add that file to GitHub or paste it anywhere except Streamlit's encrypted Secrets screen.
 
-## Dashboard connection still to finalize
+## How dashboard publishing works
 
-The scraper creates CSV files inside `data/`. A hosted app's filesystem is temporary, so a permanent publishing destination must be configured for automatic dashboard updates. Until that destination is confirmed, operators can download a ZIP after a successful run. The destination should match the current Power BI source, such as an approved OneDrive or Google Drive folder.
+Each successful run replaces the relevant output worksheets inside the
+`AM_Enriched_Articles` Google Sheet. The dashboards already use that Sheet, so
+operators do not need to move files after a refresh. The app also creates local CSV
+copies during the run and offers them as an optional ZIP backup.
 
 ## Repository contents
 
