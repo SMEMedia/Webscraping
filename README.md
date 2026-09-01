@@ -8,7 +8,8 @@ This repository provides a simple web page for refreshing data used by the Websc
 2. Leave **Collect details for new articles** selected for a normal refresh.
 3. Select **Run dashboard refresh**.
 4. Keep the page open until it says **Refresh complete**.
-5. The dashboards will read the refreshed worksheets from `AM_Enriched_Articles`.
+5. The dashboards will read the refreshed worksheets from
+   [AM_Enriched_Articles](https://docs.google.com/spreadsheets/d/1JLfIsfecWiGYfIzsYfDfOcRvlritfCmSFhUuJPxj0W4/edit?usp=drivesdk).
    The ZIP download is an optional backup for an administrator.
 
 If a run stops, expand **Technical details**, copy the message, and send it to the dashboard administrator. Never send or upload a Google service-account key.
@@ -41,14 +42,16 @@ Use values from the existing service-account JSON. Never add that file to GitHub
 ## How dashboard publishing works
 
 Each successful run replaces the relevant output worksheets inside the
-`AM_Enriched_Articles` Google Sheet. The dashboards already use that Sheet, so
+[AM_Enriched_Articles](https://docs.google.com/spreadsheets/d/1JLfIsfecWiGYfIzsYfDfOcRvlritfCmSFhUuJPxj0W4/edit?usp=drivesdk)
+Google Sheet. The dashboards already use that Sheet, so
 operators do not need to move files after a refresh. The app also creates local CSV
 copies during the run and offers them as an optional ZIP backup.
 
 ## Where company names come from
 
-The Company Mentions dashboard uses the approved company list stored in the Google
-Sheet named `company_list_spreadsheet` in the `webscraping` Google Drive folder.
+The Company Mentions dashboard uses the approved company list stored in the
+[company_list_spreadsheet](https://docs.google.com/spreadsheets/d/194SdsfBVsJVKSOzV64jLB4ds3iE8hHVdf0RmwKYj_ag/edit?usp=drivesdk)
+Google Sheet in the `webscraping` Google Drive folder.
 Company names are taken from column A of the `Company_List` tab, beginning on row 4.
 
 To add or remove a company, update that Google Sheet before running the dashboard
