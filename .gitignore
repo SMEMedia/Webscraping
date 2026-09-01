@@ -1,0 +1,16 @@
+config/*.json
+!config/keyword_segments.json
+!config/company_names.json
+!config/company_names_excluded.json
+.streamlit/secrets.toml
+.venv/
+.vscode/
+__pycache__/
+*.py[cod]
+data/general/
+data/keyword/
+data/title/
+data/company/
+data/section/
+data/timing/
+data/cache/*.csv

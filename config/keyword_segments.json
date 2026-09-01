@@ -1,0 +1,61 @@
+{
+  "ai": ["artificial intelligence", "generative ai", "genai", "chatgpt", "machine learning", 
+      "large language model", "llm", "llms", "rag", "copilot", "digital twin", "digital twins", "ai-powered", "automation"],
+  "automation": ["automation", "automated", "workflow automation", "process automation", "robotic process automation", "rpa", 
+      "cobot", "cobots", "automated systems", "automated assembly", "industrial automation", "industrial robot", "industrial robots", 
+      "collaborative robot", "collaborative robots", "scada", "factory automation", "iiot"],
+  "events": ["conference", "webinar", "summit", "trade show", "expo", "panel discussion", "roundtable", 
+      "event recap", "exhibition", "forum", "symposium", "showcase", "convention", "event", "events", "keynote", "keynote session", "keynote speaker", "fireside chat", "speaker sessions"],
+  "additive_manufacturing": ["additive manufacturing", "3d printing", "additive", "3d printed", "additive technology", "3d printing technology"],
+
+  "how_to_guides": ["how to", "guide", "step-by-step", "best practices", "checklist", "tips for", "ways to", "what to know", "tutorial", "demonstration", "walkthrough", "implementation guide"],
+  "strategy": ["strategy", "strategic planning", "roadmap", "framework", "go-to-market", "gtm", "priorities", 
+      "initiative", "strategic direction", "positioning", "transformation", "transformation strategy", "optimize", "optimization"],
+  "trends": ["trend", "trends", "forecast", "outlook", "predictions", "market shifts", "future of", "emerging"],
+
+  "data_analytics": ["analytics", "dashboard", "reporting", "metrics", "measurement", "insights", "kpi", "performance data", "business intelligence"],
+  "marketing": ["marketing", "campaign", "brand", "audience", "content marketing", "lead generation", "demand generation", "customer acquisition"],
+  "sales": ["sales", "pipeline", "revenue", "crm", "prospecting", "conversion", "sales enablement", "deal", "quota", "prospects"],
+
+  "customer_experience": ["customer experience", "cx", "customer journey", "retention", "loyalty", "personalization", "customer engagement", "voice of customer"],
+  "technology": ["technology", "software", "digital transformation", "integration", "cloud", "cybersecurity", "infrastructure", "enterprise software"],
+  "leadership": ["leadership", "executive", "c-suite", "ceo", "cfo", "cio", "cto", "management", "decision-maker", "stakeholder", "board"],
+
+  "case_studies": ["case study", "customer story", "success story", "real-world example", "results", "lessons learned", "real world applications", "real world application"],
+  "research_reports": ["research", "report", "survey", "study", "benchmark", "findings", "white paper", "whitepaper", "insights", "business insights", "journal", "peer reviewed"],
+  "news_updates": ["announced", "launch", "launched", "released", "update", "partnership", "acquisition", "expansion"],
+
+  "pricing_cost": ["cost", "pricing", "budget", "roi", "return on investment", "total cost of ownership", "tco", 
+      "investment", "expense", "cost-effective", "affordability", "premium pricing", "low-cost", "value", "profit", "profitability", "reduction", "estimate", "estimated", "purchasing"],
+  "risk_compliance": ["risk", "compliance", "security", "privacy", "regulation", "regulatory", "governance", "audit", "auditing", "policy", "standards", "oversight", "controls"],
+
+  "industry_aerospace_defense": ["aerospace", "defense", "aviation", "aircraft", "airline", "space", "satellite", 
+      "military", "dod", "faa", "plane", "planes", "f-35", "boeing", "airbus", "pentagon", "defense contractor", "defense industry",
+      "national security", "launch systems", "rocket", "propulsion", "jet engine", "flight systems", "flight control", "aerostructures", "airframe", 
+      "rotorcraft", "helicopter", "drone", "mro", "maintenance repair overhaul", "prime contractor", "mission critical", "tactical systems", "missile systems", "hypersonics"],
+  "industry_aerospace": ["aerospace", "aviation", "aircraft", "airline", "space", "satellite", "faa", "boeing", "airbus", "plane", "planes", "jet engine", "turbine", "flight", "flight systems"],
+  "industry_defense": ["defense", "military", "dod", "pentagon", "defense contractor", "defense industry", 
+      "national security", "launch systems", "rocket", "propulsion", "jet engine", "flight systems", "flight control", 
+      "aerostructures", "airframe", "rotorcraft", "helicopter", "drone", "mro", "maintenance repair overhaul", "prime contractor", "mission critical", 
+      "tactical systems", "missile systems", "hypersonics"],
+
+  "industry_appliance_consumer_goods": ["consumer goods", "consumer appliance", "consumer electronics", "cpg", "fast-moving consumer goods", 
+      "fmcg", "packaged goods", "food and beverage", "personal care"],
+  "industry_automotive": ["automotive", "auto", "vehicle", "vehicles", "car", "cars", "ev", "electric vehicle", "mobility", 
+      "oem", "dealer", "fleet", "adas", "powertrain", "ice", "internal combustion", "self-driving", "autonomous driving"],
+  "industry_manufacturing": ["manufacturing", "manufacturer", "factory", "industrial", "production", "supply chain", 
+      "operations", "plant", "assembly", "fabrication", "shop floor", "facility"],
+  "industry_medical_device_manufacturing": ["healthcare", "health care", "hospital", "provider", "patient", "pharma", 
+      "pharmaceutical", "medical", "clinical", "device", "devices", "biotech", "biotechnology", "implants", "implant", "prosthetics", "dental", "dental devices", "fda", "surgical", "surgical robots", "nano manufacturing", "micro manufacturing"],
+  "industry_financial_services": ["financial services", "finance", "bank", "banking", "insurance", "fintech", "wealth management", "asset management"],
+  "industry_energy": ["energy", "oil", "gas", "utilities", "utility", "renewables", "solar", "wind", "power grid", "electricity", "energy storage"],
+
+  "industry_technology": ["saas", "cloud", "cybersecurity", "it services", "software company", "technology provider", "data center", "managed services", 
+      "digital infrastructure", "networking", "connectivity", "platform", "digital platform", "automation software", "manufacturing software", 
+      "industrial software", "ai software", "analytics platform", "business intelligence", "data analytics", "big data", "digital transformation", "smart", "iiot", "iot"],
+  "industry_telecom": ["telecom", "telecommunications", "broadband", "wireless", "5g", "network", "connectivity", "carrier"],
+  "industry_education": ["education", "higher education", "university", "college", "student", "learning", "training", "edtech", 
+      "tooling-u", "namcr", "namri", "credentialing", "certifications", "certification", "certified", "prime"],
+  "industry_government_public_sector": ["government", "public sector", "federal", "state agency", "municipal", "civic", "public service"],
+  "industry_professional_services": ["professional services", "consulting", "agency", "law firm", "legal", "accounting", "advisory", "engineering services"]
+}
