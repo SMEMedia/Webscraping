@@ -2,6 +2,11 @@
 
 This repository provides a simple web page for refreshing data used by the Webscraping and Company Mentions dashboards. Day-to-day users do **not** need Python, a command prompt, or a copy of this repository.
 
+The app has two tabs:
+
+- **Run Refresh** updates the Google Sheets that hold the dashboard data.
+- **Dashboard** displays the refreshed results without requiring Power BI.
+
 ## For dashboard operators
 
 1. Open the refresh-page link supplied by the administrator.
@@ -13,6 +18,16 @@ This repository provides a simple web page for refreshing data used by the Websc
    The ZIP download is an optional backup for an administrator.
 
 If a run stops, expand **Technical details**, copy the message, and send it to the dashboard administrator. Never send or upload a Google service-account key.
+
+## Using the dashboard
+
+Open the **Dashboard** tab and choose a view from the menu. The available views
+cover company mentions and performance, articles, overall KPIs, title keywords,
+section performance, and returning-user behavior. Date, company, author, and
+section filters appear when they apply to the selected view.
+
+Dashboard information is read directly from `AM_Enriched_Articles`. After a
+refresh finishes, select **Reload dashboard data** to display the newest results.
 
 ## One-time administrator setup
 
