@@ -38,11 +38,25 @@ with st.expander("What happens when I run this?"):
     st.write("The app reads the approved article list, checks Google Analytics, collects missing article details, and rebuilds the dashboard data files. Keep this page open until it finishes.")
 
 today = date.today()
-start_date = st.date_input("Start date", today - timedelta(days=700), max_value=today)
-end_date = st.date_input("End date", today, max_value=today)
+earliest_date = date(2020, 1, 1)
+selected_dates = st.date_input(
+    "Dates to include",
+    value=(today - timedelta(days=700), today),
+    min_value=earliest_date,
+    max_value=today,
+    format="MM/DD/YYYY",
+    help="Select the first and last day to include in the dashboard refresh.",
+)
+
+# Streamlit returns one date while the operator is still choosing a range.
+if len(selected_dates) == 2:
+    start_date, end_date = selected_dates
+    dates_ready = True
+else:
+    start_date = end_date = selected_dates[0]
+    dates_ready = False
+    st.info("Select an end date to complete the date range.")
 scrape = st.checkbox("Collect details for new articles", True, help="Leave selected for a normal refresh.")
-if start_date > end_date:
-    st.error("The start date must be on or before the end date.")
 
 credentials_ready = any(os.environ.get(name) for name in (
     "GOOGLE_SERVICE_ACCOUNT_JSON", "GOOGLE_SERVICE_ACCOUNT_FILE", "GOOGLE_APPLICATION_CREDENTIALS"
@@ -50,7 +64,7 @@ credentials_ready = any(os.environ.get(name) for name in (
 if not credentials_ready:
     st.warning("This app has not been connected to the SME Google account. An administrator must complete the one-time setup in the README.")
 
-if st.button("Run dashboard refresh", type="primary", disabled=start_date > end_date or not credentials_ready):
+if st.button("Run dashboard refresh", type="primary", disabled=not dates_ready or not credentials_ready):
     command = [sys.executable, str(BASE_DIR / "scripts" / "run_all_ga4_analyses.py"),
                "--start-date", start_date.isoformat(), "--end-date", end_date.isoformat(),
                "--scrape" if scrape else "--no-scrape"]
