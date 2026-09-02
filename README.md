@@ -1,93 +1,63 @@
-# SME Dashboard Data Refresh
+# Web Scraping and Company Mentions Dashboard
 
-This repository provides a simple web page for refreshing data used by the Webscraping and Company Mentions dashboards. Day-to-day users do **not** need Python, a command prompt, or a copy of this repository.
+This dashboard refreshes and displays article, audience, and company-mention information for SME Media. It is designed for routine use in a web browser.
 
-The app has two tabs:
+## Important links
 
-- **Run Refresh** updates the Google Sheets that hold the dashboard data.
-- **Dashboard** displays the refreshed results without requiring Power BI.
+- [Open the dashboard](https://smewebscraping.streamlit.app/)
+- [SMEMedia repository](https://github.com/SMEMedia/Webscraping)
+- [Approved company list](https://docs.google.com/spreadsheets/d/194SdsfBVsJVKSOzV64jLB4ds3iE8hHVdf0RmwKYj_ag/edit)
+- [Dashboard data](https://docs.google.com/spreadsheets/d/1JLfIsfecWiGYfIzsYfDfOcRvlritfCmSFhUuJPxj0W4/edit)
 
-## For dashboard operators
+## Refresh the data
 
-1. Open the refresh-page link supplied by the administrator.
-2. Leave **Collect details for new articles** selected for a normal refresh.
-3. Select **Run dashboard refresh**.
-4. Keep the page open until it says **Refresh complete**.
-5. The dashboards will read the refreshed worksheets from
-   [AM_Enriched_Articles](https://docs.google.com/spreadsheets/d/1JLfIsfecWiGYfIzsYfDfOcRvlritfCmSFhUuJPxj0W4/edit?usp=drivesdk).
-   The ZIP download is an optional backup for an administrator.
+1. Update company names in column A of the **Company_List** tab in the approved company list, beginning on row 4.
+2. Open the dashboard and select **Run Refresh**.
+3. Leave **Collect details for new articles** selected for a normal refresh.
+4. Select **Run dashboard refresh**.
+5. Keep the page open until **Refresh complete** appears.
+6. Open the **Dashboard** tab and select **Reload dashboard data**.
 
-If a run stops, expand **Technical details**, copy the message, and send it to the dashboard administrator. Never send or upload a Google service-account key.
+The refresh replaces the appropriate worksheets in the shared dashboard-data Sheet. The optional ZIP download is a backup and is not required for normal use.
 
-## Using the dashboard
+## Use the dashboard
 
-Open the **Dashboard** tab and choose a view from the menu. The available views
-cover company mentions and performance, articles, overall KPIs, title keywords,
-section performance, and returning-user behavior. Date, company, author, and
-section filters appear when they apply to the selected view.
+Choose a view from the dashboard menu. Available views cover company mentions, articles, overall performance, title keywords, section performance, and returning-user behavior. Use the date, company, author, and section filters when they appear.
 
-Dashboard information is read directly from `AM_Enriched_Articles`. After a
-refresh finishes, select **Reload dashboard data** to display the newest results.
+## Troubleshooting
 
-## One-time administrator setup
+### The refresh appears to be stuck
 
-The Google service account must have access to GA4 property `432233519`, the `AM_Enriched_Articles` and `company_list_spreadsheet` Google Sheets, and the Drive folder named `webscraping`.
+- Keep the page open; a full refresh can take several minutes.
+- Do not start a second refresh in another tab.
+- If no progress appears after 15 minutes, capture a screenshot and expand **Technical details**.
+- Send the message, approximate start time, and screenshot to the dashboard support contact.
 
-1. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/).
-2. Create an app from this repository and choose `app.py` as the main file.
-3. Open **Settings → Secrets** and paste the service-account values using this structure:
+### A company is missing
 
-```toml
-[google_service_account]
-type = "service_account"
-project_id = "your-project-id"
-private_key_id = "your-private-key-id"
-private_key = "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-client_email = "service-account@project.iam.gserviceaccount.com"
-client_id = "your-client-id"
-auth_uri = "https://accounts.google.com/o/oauth2/auth"
-token_uri = "https://oauth2.googleapis.com/token"
-auth_provider_x509_cert_url = "https://www.googleapis.com/oauth2/v1/certs"
-client_x509_cert_url = "your-certificate-url"
-universe_domain = "googleapis.com"
-```
+- Confirm the name is in column A of the **Company_List** tab, on row 4 or below.
+- Remove leading or trailing spaces and use the company’s usual published spelling.
+- Run a new refresh after changing the list.
+- If the app says it used a backup list, ask the Google Workspace owner to verify access to the Sheet.
 
-Use values from the existing service-account JSON. Never add that file to GitHub or paste it anywhere except Streamlit's encrypted Secrets screen.
+### New articles or metrics are missing
 
-## How dashboard publishing works
+- Confirm the refresh finished successfully.
+- Select **Reload dashboard data** after the refresh.
+- Check that the selected date range includes the expected article.
+- Very recent analytics can still be processing; check again the next business day.
 
-Each successful run replaces the relevant output worksheets inside the
-[AM_Enriched_Articles](https://docs.google.com/spreadsheets/d/1JLfIsfecWiGYfIzsYfDfOcRvlritfCmSFhUuJPxj0W4/edit?usp=drivesdk)
-Google Sheet. The dashboards already use that Sheet, so
-operators do not need to move files after a refresh. The app also creates local CSV
-copies during the run and offers them as an optional ZIP backup.
+### The dashboard opens but shows an error
 
-## Where company names come from
+- Refresh the browser once.
+- Open [Streamlit Community Cloud](https://share.streamlit.io/) and confirm the app is running.
+- If the app shows an access or credential error, contact the technical owner. Never paste credentials into the dashboard, GitHub, email, or chat.
 
-The Company Mentions dashboard uses the approved company list stored in the
-[company_list_spreadsheet](https://docs.google.com/spreadsheets/d/194SdsfBVsJVKSOzV64jLB4ds3iE8hHVdf0RmwKYj_ag/edit?usp=drivesdk)
-Google Sheet in the `webscraping` Google Drive folder.
-Company names are taken from column A of the `Company_List` tab, beginning on row 4.
+## Ongoing maintenance
 
-To add or remove a company, update that Google Sheet before running the dashboard
-refresh. The app will use the latest list automatically; operators do not need to
-edit any files in GitHub.
+- Update the approved company list before running a refresh.
+- Review the completion message after every refresh.
+- Keep dashboard and Google Sheet access assigned to at least two current SME employees.
+- Escalate credential, permission, deployment, or code errors to the assigned technical owner.
 
-The app also keeps a backup copy of the company list. If it cannot reach the Google
-Sheet during a refresh, it will use that backup and note the problem under
-**Technical details**. An administrator should review the message and confirm the
-Google account connection before the next refresh.
-
-## Repository contents
-
-- `app.py`: operator-friendly page
-- `scripts/`: scraping and Google Analytics code
-- `config/`: non-secret keyword and company lists
-- `data/cache/`: temporary article details created during a run (not published to GitHub)
-- `requirements.txt`: software installed automatically by Streamlit
-
-## Maintenance
-
-- Never commit credentials, tokens, `secrets.toml`, or service-account JSON files.
-- The default run covers the previous 700 days through today.
-- Local testing is optional: install the requirements and run `streamlit run app.py`.
+*** Delete File: PodcastDash/README.md
